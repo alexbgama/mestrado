@@ -2,6 +2,7 @@
 # ____________________________________________________________________________________________________________________
 
 # ESTE SCRIPT EXTRAI OS PARÂMETROS ELETRÔNICOS E TERMOQUÍMICOS DO CÁLCULO DE DFT, PERCORRENDO CADA .LOG DENTRO DO DIRETÓRIO
+# É IMPORTANTE CONVERTER A PLANILHA FINAL GERADA NESSE SCRIPT DE global.csv PARA global.xlsx
 # _________________________________________________________________________________________________________________________
 
 
