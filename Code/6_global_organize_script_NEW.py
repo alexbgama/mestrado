@@ -13,7 +13,7 @@
 import pandas as pd  
 
 # Caminho do arquivo original 
-file_path = "global.xlsx"
+file_path = "../database/CP-QSAR-Gaussian_vacuum/global.xlsx"
 
 # Carrega o conteúdo da planilha
 df = pd.read_excel(file_path, header=None)
