@@ -9,7 +9,7 @@ O objetivo central deste projeto é investigar quais descritores eletrônicos ob
 
 O fluxo de trabalho integra descritores eletrônicos obtidos por DFT com técnicas estatísticas e modelos de regressão supervisionada, garantindo rastreabilidade metodológica, organização dos dados e reprodutibilidade computacional:
 
-1. Organização e padronização das moléculas do estudo
+## 1. Organização e padronização das moléculas do estudo
 
 Objetivo
 
