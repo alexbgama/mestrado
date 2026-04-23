@@ -234,8 +234,7 @@ Explorar a organização do espaço químico por meio de PCA em três dimensões
 - Compila e aplica uma hierarquia de padrões SMARTS para classificar as moléculas em classes químicas gerando uma classe final atribuída por prioridade
 - Prepara a matriz numérica da PCA e padroniza os descritores com `StandardScaler`
 - Calcula a variância explicada, os loadings e as equações lineares de PC1, PC2 e PC3
-- Gera um gráfico PCA 3D colorido por classe química, heatmap dos loadings, agrupa classes pouco frequentes na categoria “outros”
-- Exporta: tabela final de classificação SMARTS (`smarts_classificacao_final.xlsx`) e as figuras dos gráficos 
+- Gera um gráfico PCA 3D colorido por classe química, heatmap dos loadings, agrupa classes pouco frequentes na categoria “outros” 
 
 #### Entradas
 
@@ -250,7 +249,6 @@ Abrir o notebook e executar as células em sequência.
 - PCA 3D
 - Heatmap de loadings das três componentes principais
 - Equações lineares das componentes principais
-- Arquivo `smarts_classificacao_final.csv` com a classificação final por SMARTS
 - Figuras em `.png` e `.svg`
 
 
@@ -269,7 +267,6 @@ Construir a base final de modelagem a partir dos arquivos Gaussian, validar cons
 - Classes químicas e codificação categórica
 - Treinamento e avaliação dos modelos
 - Modelo representativo e interpretabilidade SHAP
-- Gera: gráfico de importância global, beeswarm plot, ranking das variáveis mais relevantes e gráficos diagnósticos em HC para o modelo representativo
 
 #### Entradas
 
