@@ -32,7 +32,7 @@ Organizar o conjunto de moléculas do estudo, atribuindo identificadores padroni
 
 #### Script principal
 
-'2_gerar_siglas.py'
+`2_gerar_siglas.py`
 
 - Gera siglas ou identificadores curtos para as moléculas
 - Padroniza a nomenclatura usada nos arquivos do trabalho
@@ -44,14 +44,14 @@ Planilha com as moléculas originais.
 
 #### Executar
 
-'python 2_gerar_siglas.py'
+`python 2_gerar_siglas.py`
 
 #### Saídas
 
 Tabela com identificadores moleculares padronizados.
 
 #### Observações
-Esta etapa é importante para garantir rastreabilidade entre nomes, estruturas, arquivos '.log' e tabelas finais.
+Esta etapa é importante para garantir rastreabilidade entre nomes, estruturas, arquivos `.log` e tabelas finais.
 
 ### 2. Recuperação de informações estruturais
 
@@ -61,7 +61,7 @@ Obter representações estruturais confiáveis das moléculas, como nomes IUPAC 
 
 #### Script principal
 
-'3_script_smiles.py'
+`3_script_smiles.py`
 
 - Consulta e organiza representações estruturais das moléculas
 - Recupera ou valida SMILES
@@ -73,7 +73,7 @@ Lista de moléculas padronizadas.
 
 #### Executar
 
-'python 3_script_smiles.py'
+`python 3_script_smiles.py`
 
 #### Saídas
 
@@ -91,7 +91,7 @@ Calcular ou conferir massas moleculares das estruturas utilizadas no estudo.
 
 #### Notebook principal
 
-'4_SCRIPT_calculo_massa_molecular.ipynb'
+`4_SCRIPT_calculo_massa_molecular.ipynb`
 
 - Lê as estruturas moleculares
 - Calcula massas moleculares
@@ -121,7 +121,7 @@ Automatizar a criação dos arquivos de entrada usados nos cálculos de estrutur
 
 #### Script principal
 
-'1_input_fila_water_creator.sh'
+`1_input_fila_water_creator.sh`
 
 - Organiza estruturas para cálculo
 - Prepara arquivos de entrada
@@ -133,7 +133,7 @@ Estruturas moleculares previamente organizadas.
 
 #### Executar
 
-'bash 1_input_fila_water_creator.sh'
+`bash 1_input_fila_water_creator.sh`
 
 #### Saídas
 
@@ -151,11 +151,11 @@ Extrair os descritores eletrônicos e termodinâmicos obtidos via DFT e que ser�
 
 #### Script principal
 
-'5_script_QSPR-DFT_values.bash'
+`5_script_QSPR-DFT_values.bash`
 
-- Percorre os arquivos '.log' do Gaussian
+- Percorre os arquivos `.log` do Gaussian
 - Extrai propriedades eletrônicas e termodinâmicas
-- Organiza esses valores em uma planilha '.csv'
+- Organiza esses valores em uma planilha `.csv`
 
 Descritores extraídos incluem:
 
@@ -168,11 +168,11 @@ Descritores extraídos incluem:
 
 #### Entradas
 
-Arquivos '.log' do Gaussian.
+Arquivos `.log` do Gaussian.
 
 #### Executar
 
-'bash 5_script_QSPR-DFT_values.bash'
+`bash 5_script_QSPR-DFT_values.bash`
 
 #### Saídas
 
@@ -180,7 +180,7 @@ Tabela contendo os descritores extraídos.
 
 #### Observações
 
-A planlha '.csv' gerada deve ser convertida para .xlsx para a etapa subsequente.
+A planlha `.csv` gerada deve ser convertida para .xlsx para a etapa subsequente.
 
 ### 6. Organização dos descritores extraídos
 
@@ -190,17 +190,17 @@ Organizar os descritores extraídos na etapa 5 para integrá-los a base de dados
 
 #### Script principal
 
-'6_global_organize_script_NEW.py'
+`6_global_organize_script_NEW.py`
 
 - Separa os descritores extraídos em colunas rotuladas de acordo com cada descritor e sua unidade de medida
 
 #### Entradas
 
-Planilha '.xlsx' gerada na etapa anterior.
+Planilha `.xlsx` gerada na etapa anterior.
 
 #### Executar
 
-'python 6_global_organize_script_NEW.py'
+`python 6_global_organize_script_NEW.py`
 
 #### Saídas
 
@@ -215,9 +215,9 @@ Investigar como o HC se distribui entre as classes químicas do conjunto de dado
 
 #### Notebook principal
 
-'7_exploring_HC_distribution.ipynb'
+`7_exploring_HC_distribution.ipynb`
 
-- Calcula estatísticas descritivas por classe, como número de amostras, média, mediana, desvio padrão, mínimo, máximo e amplitude de 'HeatOfCombustion'
+- Calcula estatísticas descritivas por classe, como número de amostras, média, mediana, desvio padrão, mínimo, máximo e amplitude de `HeatOfCombustion`
 - Gera visualizações comparativas da distribuição do calor de combustão por classe, incluindo: boxplot, violin plot, gráficos de médias e contagens por classe
 - Executa testes estatísticos para avaliar diferenças entre grupos: ANOVA de uma via, Kruskal-Wallis, comparações pareadas por Mann-Whitney para as classes mais frequentes.
 - Decompõe a variância entre grupos e dentro dos grupos, calculando também o tamanho de efeito (eta-squared)
@@ -225,7 +225,7 @@ Investigar como o HC se distribui entre as classes químicas do conjunto de dado
 
 #### Entradas
 
-Planilha 'data_models.xlsx'.
+Planilha `data_models.xlsx`.
 
 #### Executar
 
@@ -234,7 +234,7 @@ Abrir o notebook e executar as células em sequência.
 #### Saídas
 
 - Estatísticas descritivas por classe
-- Gráficos comparativos da distribuição de 'HeatOfCombustion'
+- Gráficos comparativos da distribuição de `HeatOfCombustion`
 - Resultados de ANOVA, Kruskal-Wallis e testes pareados
 - Estimativa da proporção de variância explicada pelas classes químicas
 
@@ -246,18 +246,18 @@ Explorar a organização do espaço químico por meio de PCA em três dimensões
 
 #### Notebook principal
 
-'8_PCA_3D_work_features.ipynb'
+`8_PCA_3D_work_features.ipynb`
 
 - Define os descritores para a PCA: HOMO, GAP, CV (capacidade calorífica a volume constante), Enthalpy, DETmax (fração de transferência de elétrons)
 - Compila e aplica uma hierarquia de padrões SMARTS para classificar as moléculas em classes químicas gerando uma classe final atribuída por prioridade
-- Prepara a matriz numérica da PCA e padroniza os descritores com 'StandardScaler'
+- Prepara a matriz numérica da PCA e padroniza os descritores com `StandardScaler`
 - Calcula a variância explicada, os loadings e as equações lineares de PC1, PC2 e PC3 com base nos descritores padronizados
 - Gera um gráfico PCA 3D colorido por classe química, heatmap dos loadings, agrupa classes pouco frequentes na categoria “outros”
-- Exporta: tabela final de classificação SMARTS ('smarts_classificacao_final.xlsx') e as figuras dos gráficos 
+- Exporta: tabela final de classificação SMARTS (`smarts_classificacao_final.xlsx`) e as figuras dos gráficos 
 
 #### Entradas
 
-'../database/data/data_models_v1.xlsx'
+`../database/data/data_models_v1.xlsx`
 
 #### Executar
 
@@ -268,8 +268,8 @@ Abrir o notebook e executar as células em sequência.
 - PCA 3D
 - Heatmap de loadings das três componentes principais
 - Equações lineares das componentes principais
-- Arquivo '.csv' com a classificação final por SMARTS
-- Figuras em '.png' e '.svg'
+- Arquivo `.csv` com a classificação final por SMARTS
+- Figuras em `.png` e `.svg`
 
 
 ### 9. Construção da base QSPR-DFT, treinamento dos modelos e interpretabilidade via SHAP
@@ -280,7 +280,7 @@ Construir a base final de modelagem a partir dos arquivos Gaussian, validar cons
 
 #### Notebook principal
 
-'9_main_v4_SHAP_Defesa.ipynb'
+`9_main_v4_SHAP_Defesa.ipynb`
 
 - Construção e validação da base de dados
 - Preparação do alvo e seleção de descritores
@@ -292,7 +292,7 @@ Construir a base final de modelagem a partir dos arquivos Gaussian, validar cons
 #### Entradas
 
 - Planilhas de base molecular
-- Arquivos '.log' do Gaussian
+- Arquivos `.log` do Gaussian
 - Base complementar com SMILES
 
 #### Executar
@@ -301,7 +301,7 @@ Abrir o notebook e executar as células em sequência.
 
 #### Saídas
 
-- Base final consolidada para modelagem ('data_models.xlsx', 'model_performance.xlsx')
+- Base final consolidada para modelagem (`data_models.xlsx`, `model_performance.xlsx`)
 - Descritores eletrônicos e derivados
 - Classes químicas codificadas por one-hot
 - Métricas de desempenho dos modelos
