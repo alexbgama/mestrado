@@ -28,7 +28,7 @@ O fluxo de trabalho integra descritores eletrônicos obtidos por DFT com técnic
 
 #### Objetivo
 
-Organizar o conjunto de moléculas do estudo, atribuindo identificadores padronizados para uso ao longo de todo o pipeline.
+Organizar o conjunto de moléculas do estudo, atribuindo identificadores padronizados para uso ao longo de todo o pipeline. Esta etapa é importante para garantir rastreabilidade entre nomes, estruturas, arquivos `.log` e tabelas finais.
 
 #### Script principal
 
@@ -36,7 +36,6 @@ Organizar o conjunto de moléculas do estudo, atribuindo identificadores padroni
 
 - Gera siglas ou identificadores curtos para as moléculas
 - Padroniza a nomenclatura usada nos arquivos do trabalho
-- Prepara a base para integração com os scripts seguintes
 
 #### Entradas
 
@@ -50,22 +49,18 @@ Planilha com as moléculas originais.
 
 Tabela com identificadores moleculares padronizados.
 
-#### Observações
-Esta etapa é importante para garantir rastreabilidade entre nomes, estruturas, arquivos `.log` e tabelas finais.
-
 ### 2. Recuperação de informações estruturais
 
 #### Objetivo
 
-Obter representações estruturais confiáveis das moléculas, como nomes IUPAC e SMILES.
+Obter representações estruturais confiáveis das moléculas, como nomes IUPAC e SMILES. Essa etapa é essencial para a curadoria da base de dados e para a posterior categorização química das moléculas.
 
 #### Script principal
 
 `3_script_smiles.py`
 
 - Consulta e organiza representações estruturais das moléculas
-- Recupera ou valida SMILES
-- Associa nomes estruturais à base do projeto
+- Recupera SMILES
 
 #### Entradas
 
@@ -79,15 +74,11 @@ Lista de moléculas padronizadas.
 
 Tabela contendo nomes IUPAC e SMILES.
 
-#### Observações
-
-Essa etapa é essencial para a curadoria da base de dados e para a posterior categorização química das moléculas.
-
 ### 3. Cálculo e validação de massa molecular
 
 #### Objetivo
 
-Calcular ou conferir massas moleculares das estruturas utilizadas no estudo.
+Calcular ou conferir massas moleculares das estruturas utilizadas no estudo. Essa etapa ajuda a conferir a consistência entre estrutura, fórmula e massa molecular antes do uso em modelagem.
 
 #### Notebook principal
 
@@ -108,10 +99,6 @@ Abrir o notebook e executar as células em sequência.
 #### Saídas
 
 Tabela com massas moleculares calculadas.
-
-#### Observações
-
-Essa etapa ajuda a conferir a consistência entre estrutura, fórmula e massa molecular antes do uso em modelagem.
 
 ### 4. Preparação dos inputs para cálculo de DFT
 
@@ -138,10 +125,6 @@ Estruturas moleculares previamente organizadas.
 #### Saídas
 
 Arquivos de entrada do Gaussian padronizados com número de procesadores, memória e cabeçalho de cálculo definidos.
-
-#### Observações
-
-Essa etapa integra a organização das estruturas moleculares ao início da etapa de cálculos teóricos.
 
 ### 5. Extração automatizada de descritores eletrônicos do DFT
 
@@ -217,11 +200,10 @@ Investigar como o HC se distribui entre as classes químicas do conjunto de dado
 
 `7_exploring_HC_distribution.ipynb`
 
-- Calcula estatísticas descritivas por classe, como número de amostras, média, mediana, desvio padrão, mínimo, máximo e amplitude de `HeatOfCombustion`
-- Gera visualizações comparativas da distribuição do calor de combustão por classe, incluindo: boxplot, violin plot, gráficos de médias e contagens por classe
-- Executa testes estatísticos para avaliar diferenças entre grupos: ANOVA de uma via, Kruskal-Wallis, comparações pareadas por Mann-Whitney para as classes mais frequentes.
-- Decompõe a variância entre grupos e dentro dos grupos, calculando também o tamanho de efeito (eta-squared)
-- Produz um resumo executivo com os principais resultados estatísticos
+- Calcula estatísticas descritivas por classe (nº de amostras, média, mediana, desvio padrão, mínimo, máximo e amplitude de `HeatOfCombustion`)
+- Gera visualizações comparativas da distribuição do calor de combustão por classe
+- Executa testes estatísticos para avaliar diferenças entre grupos (ANOVA, Kruskal-Wallis e comparações pareadas)
+- Decompõe a variância entre grupos e dentro dos grupos, e calcula o tamanho de efeito (eta-squared)
 
 #### Entradas
 
@@ -248,10 +230,10 @@ Explorar a organização do espaço químico por meio de PCA em três dimensões
 
 `8_PCA_3D_work_features.ipynb`
 
-- Define os descritores para a PCA: HOMO, GAP, CV (capacidade calorífica a volume constante), Enthalpy, DETmax (fração de transferência de elétrons)
+- Define os descritores para a PCA
 - Compila e aplica uma hierarquia de padrões SMARTS para classificar as moléculas em classes químicas gerando uma classe final atribuída por prioridade
 - Prepara a matriz numérica da PCA e padroniza os descritores com `StandardScaler`
-- Calcula a variância explicada, os loadings e as equações lineares de PC1, PC2 e PC3 com base nos descritores padronizados
+- Calcula a variância explicada, os loadings e as equações lineares de PC1, PC2 e PC3
 - Gera um gráfico PCA 3D colorido por classe química, heatmap dos loadings, agrupa classes pouco frequentes na categoria “outros”
 - Exporta: tabela final de classificação SMARTS (`smarts_classificacao_final.xlsx`) e as figuras dos gráficos 
 
@@ -268,7 +250,7 @@ Abrir o notebook e executar as células em sequência.
 - PCA 3D
 - Heatmap de loadings das três componentes principais
 - Equações lineares das componentes principais
-- Arquivo `.csv` com a classificação final por SMARTS
+- Arquivo `smarts_classificacao_final.csv` com a classificação final por SMARTS
 - Figuras em `.png` e `.svg`
 
 
@@ -285,9 +267,9 @@ Construir a base final de modelagem a partir dos arquivos Gaussian, validar cons
 - Construção e validação da base de dados
 - Preparação do alvo e seleção de descritores
 - Classes químicas e codificação categórica
-- Treinamento e avaliação dos modelos (sob validação cruzada LOOCV: Ridge, Lasso, ElasticNet, PLS, Random Forest, Gradient Boosting; métricas: R², Q², RMSE, MAE)
+- Treinamento e avaliação dos modelos
 - Modelo representativo e interpretabilidade SHAP
-- Gera: gráfico de importância global, beeswarm plot, ranking das variáveis mais relevantes e gráficos diagnósticos em HC para o modelo representativo)
+- Gera: gráfico de importância global, beeswarm plot, ranking das variáveis mais relevantes e gráficos diagnósticos em HC para o modelo representativo
 
 #### Entradas
 
