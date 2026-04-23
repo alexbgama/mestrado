@@ -242,7 +242,7 @@ Abrir o notebook e executar as células em sequência.
 
 #### Objetivo
 
-Explorar a organização do espaço químico por meio de PCA em três dimensões, usando um conjunto de descritores eletrônicos selecionados e classificando as classes das moléculas por SMARTS para fins de visualização e interpretação.
+Explorar a organização do espaço químico por meio de PCA em três dimensões, usando um conjunto de descritores eletrônicos selecionados e classificando as classes das moléculas por SMARTS.
 
 #### Notebook principal
 
